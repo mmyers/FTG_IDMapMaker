@@ -91,7 +91,7 @@ public class ProvinceData {
         }
     }
     
-    public void loadTxt(String filename) {
+    private void loadTxt(String filename) {
         GenericObject provinces = EUGFileIO.load(filename);
         
         for (GenericObject prov : provinces.getChildren("province")) {
@@ -140,10 +140,6 @@ public class ProvinceData {
     
     public Province getProvince(int id) {
         return allProvs.get(id);
-//        if (id < 0 || id >= NUM_PROVINCES)
-//            return null;
-//        
-//        return allProvs[id];
     }
     
     public boolean isLand(int id) {
@@ -225,7 +221,7 @@ public class ProvinceData {
     }
     
     private static final class ProvinceCsv implements Province {
-        private String[] entry;
+        private final String[] entry;
         
         public static final int NAME_IDX = 1;
         public static final int TERRAIN_IDX = 13;
@@ -311,8 +307,8 @@ public class ProvinceData {
     }
     
     private class ProvinceTxt implements Province {
-        private String name;
-        private String terrain;
+        private final String name;
+        private final String terrain;
         
         ProvinceTxt(String name, String terrain) {
             this.name = name;
@@ -333,7 +329,7 @@ public class ProvinceData {
 
         @Override
         public void writeOut(BufferedWriter writer) throws IOException {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            throw new UnsupportedOperationException("Not supported yet.");
         }
         
     }
