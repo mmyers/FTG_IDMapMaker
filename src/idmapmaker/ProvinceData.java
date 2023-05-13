@@ -32,7 +32,7 @@ public class ProvinceData {
     
     public static int NUM_PROVINCES = 2020;
     
-    private final Map<Integer, Province> allProvs = new HashMap<>(); //[NUM_PROVINCES];
+    private final Map<Integer, Province> allProvs = new HashMap<>();
     private final List<Province> extras = new ArrayList<>();
     
     private static final Pattern SEMICOLON = Pattern.compile(";");
